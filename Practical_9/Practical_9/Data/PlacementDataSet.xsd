@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PlacementDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="PlacementDataSet" msdata:IsDataSet="true" msdata:MainDataTable="PlacementRecords" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PlacementRecords">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="StudentId" type="xs:int" minOccurs="0" />
+              <xs:element name="EnrollmentNo" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentName" type="xs:string" minOccurs="0" />
+              <xs:element name="Department" type="xs:string" minOccurs="0" />
+              <xs:element name="BatchYear" type="xs:int" minOccurs="0" />
+              <xs:element name="CGPA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CompanyName" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="JobRole" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="PackageLPA" type="xs:decimal" minOccurs="0" nillable="true" />
+              <xs:element name="PlacementDate" type="xs:dateTime" minOccurs="0" nillable="true" />
+              <xs:element name="PlacementStatus" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

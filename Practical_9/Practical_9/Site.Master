@@ -1,0 +1,29 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="Practical_9.SiteMaster" %>
+<!DOCTYPE html>
+<html lang="en">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server">Placement Dashboard</asp:ContentPlaceHolder> | Practical 9</title>
+    <link href="Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header class="topbar">
+            <div class="topbar-inner">
+                <a class="brand" href="Default.aspx"><span class="brand-mark">P</span><span>Placement<span class="brand-light">Desk</span></span></a>
+                <nav class="topnav" aria-label="Main navigation">
+                    <a href="Default.aspx" class="nav-link">Dashboard</a>
+                    <a href="CrystalReport.aspx" class="nav-link nav-link-report">Crystal Report <span class="nav-dot"></span></a>
+                </nav>
+            </div>
+        </header>
+        <main class="site-main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </main>
+        <footer class="site-footer">
+            <div class="footer-inner"><span>Placement Management System</span><span>Practical 9 · .NET Technologies</span></div>
+        </footer>
+    </form>
+</body>
+</html>

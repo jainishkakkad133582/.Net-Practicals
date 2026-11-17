@@ -1,0 +1,1 @@
+<%@ Application Language="C#" CodeBehind="Global.asax.cs" Inherits="Practical_9.Global" %>

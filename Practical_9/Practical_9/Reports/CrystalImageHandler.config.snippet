@@ -1,0 +1,16 @@
+<!-- Merge these sections into Web.config only after installing the matching SAP Crystal Reports runtime. -->
+<system.web>
+  <httpHandlers>
+    <add verb="GET" path="CrystalImageHandler.aspx"
+         type="CrystalDecisions.Web.CrystalImageHandler, CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+  </httpHandlers>
+</system.web>
+
+<system.webServer>
+  <handlers>
+    <add name="CrystalImageHandler.aspx_GET" verb="GET" path="CrystalImageHandler.aspx"
+         type="CrystalDecisions.Web.CrystalImageHandler, CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
+         preCondition="integratedMode" />
+  </handlers>
+  <validation validateIntegratedModeConfiguration="false" />
+</system.webServer>

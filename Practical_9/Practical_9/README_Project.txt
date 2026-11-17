@@ -1,0 +1,1 @@
+See the solution-level README.md for project setup and the Crystal Reports prerequisite. The dashboard creates and seeds PlacementDB on first use.
