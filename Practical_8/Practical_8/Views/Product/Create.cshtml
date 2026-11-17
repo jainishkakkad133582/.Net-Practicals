@@ -1,0 +1,36 @@
+@model Practical_8.Models.Product
+@{
+    ViewBag.Title = "Add New Product";
+}
+<div class="page-heading">
+    <p class="eyebrow">INVENTORY / CREATE</p>
+    <h1>Add New Product</h1>
+    <p class="muted">Enter the product details below.</p>
+</div>
+
+<div class="form-card">
+    @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "Please correct the following errors:", new { @class = "validation-summary" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.ProductName, "Product Name")
+            @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control", placeholder = "Enter product name", maxlength = "100" })
+            @Html.ValidationMessageFor(m => m.ProductName, "", new { @class = "field-error" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Quantity, "Quantity")
+            @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", type = "number", min = "0", placeholder = "Enter quantity" })
+            @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "field-error" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Price, "Price")
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", min = "0", step = "0.01", placeholder = "Enter price" })
+            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "field-error" })
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="button button-primary">Save Product</button>
+            @Html.ActionLink("Back to Inventory", "Index", "Product", null, new { @class = "button button-ghost" })
+        </div>
+    }
+</div>

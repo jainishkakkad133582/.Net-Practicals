@@ -1,0 +1,67 @@
+@model IEnumerable<Practical_8.Models.Product>
+@{
+    ViewBag.Title = "Inventory";
+}
+<div class="page-heading heading-row">
+    <div>
+        <p class="eyebrow">PRODUCT CONTROL PANEL</p>
+        <h1>Inventory</h1>
+        <p class="muted">View and manage the products stored in your database.</p>
+    </div>
+    @Html.ActionLink("+ Add New Product", "Create", "Product", null, new { @class = "button button-primary" })
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<div class="toolbar">
+    @using (Html.BeginForm("Index", "Product", FormMethod.Get, new { @class = "search-form" }))
+    {
+        <input type="text" name="searchString" value="@ViewBag.SearchString" placeholder="Search product name..." class="search-input" />
+        <button type="submit" class="button button-secondary">Search</button>
+        @Html.ActionLink("Clear", "Index", "Product", null, new { @class = "clear-link" })
+    }
+    <span class="record-count">@Model.Count() product(s)</span>
+</div>
+
+<div class="table-wrap">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th class="actions-column">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (!Model.Any())
+        {
+            <tr><td colspan="5" class="empty-state">No products found. Add a product to get started.</td></tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td class="id-cell">#@item.ProductId</td>
+                    <td class="product-name">@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price.ToString("0.00")</td>
+                    <td class="actions-cell">
+                        @Html.ActionLink("Edit", "Edit", "Product", new { id = item.ProductId }, new { @class = "action-link edit-link" })
+                        @using (Html.BeginForm("Delete", "Product", new { id = item.ProductId }, FormMethod.Post, new { @class = "inline-form", onsubmit = "return confirm('Delete this product?');" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="action-link delete-link">Delete</button>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>

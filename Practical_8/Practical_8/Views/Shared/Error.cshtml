@@ -1,0 +1,11 @@
+@{
+    ViewBag.Title = "Error";
+}
+<div class="page-heading">
+    <h1>Something went wrong</h1>
+    <p class="muted">The request could not be completed.</p>
+</div>
+<div class="alert alert-error">
+    Check that SQL Server LocalDB is installed and that the database connection is available.
+</div>
+<p>@Html.ActionLink("Return to Inventory", "Index", "Product", null, new { @class = "button button-primary" })</p>

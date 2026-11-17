@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Inventory Management</title>
+    <link href="@Url.Content("~/Content/site.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="@Url.Action("Index", "Product")">Inventory Management</a>
+        </div>
+    </header>
+    <main class="container page-content">
+        @RenderBody()
+    </main>
+    <footer class="site-footer">
+        <div class="container">Inventory Management Module</div>
+    </footer>
+</body>
+</html>
